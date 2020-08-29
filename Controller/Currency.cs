@@ -36,7 +36,7 @@ namespace CoinPress.Controller
         }
         #endregion
 
-        #region ListByDate Method
+        #region Create Method
         public async void Create(string wpid, string snky, string title, string info, string abbrev, string exchange, Action<bool, string> callback)
         {
             var dict = new Dictionary<string, string>();
@@ -48,7 +48,7 @@ namespace CoinPress.Controller
             dict.Add("exchange", exchange);
             var content = new FormUrlEncodedContent(dict);
 
-            var response = await client.PostAsync(BaseClass.BaseDomainUrl + "/mobilepos/v1//operation/listing/bydate", content);
+            var response = await client.PostAsync(BaseClass.BaseDomainUrl + "/coinpress/v1/user/wallet/currencies", content);
             response.EnsureSuccessStatusCode();
 
             if (response.IsSuccessStatusCode)
