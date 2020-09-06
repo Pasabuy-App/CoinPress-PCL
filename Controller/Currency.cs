@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
-using CoinPress.Controller.Struct;
+using CoinPress.Model;
 
-namespace CoinPress.Controller
+namespace CoinPress
 {
     public class Currency
     {
@@ -40,12 +39,12 @@ namespace CoinPress.Controller
         public async void Create(string wpid, string snky, string title, string info, string abbrev, string exchange, Action<bool, string> callback)
         {
             var dict = new Dictionary<string, string>();
-            dict.Add("wpid", wpid);
-            dict.Add("snky", snky);
-            dict.Add("title", title);
-            dict.Add("info", info);
-            dict.Add("abbrev", abbrev);
-            dict.Add("exchange", exchange);
+                dict.Add("wpid", wpid);
+                dict.Add("snky", snky);
+                dict.Add("title", title);
+                dict.Add("info", info);
+                dict.Add("abbrev", abbrev);
+                dict.Add("exchange", exchange);
             var content = new FormUrlEncodedContent(dict);
 
             var response = await client.PostAsync(BaseClass.BaseDomainUrl + "/coinpress/v1/user/wallet/currencies", content);

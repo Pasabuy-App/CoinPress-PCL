@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CoinPress.Controller.Struct
+﻿
+namespace CoinPress.Model
 {
     public class Token
     {

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
-using CoinPress.Controller.Struct;
+using CoinPress.Model;
 
-namespace CoinPress.Controller
+namespace CoinPress
 {
     public class Wallet
     {
         #region Fields
         /// <summary>
-        /// Instance of Wallet Class with create, send money and listing method.
+        /// Instance of Wallet Class with create, send money, balance and list method.
         /// </summary>
         private static Wallet instance;
         public static Wallet Instance
@@ -121,8 +120,8 @@ namespace CoinPress.Controller
         }
         #endregion
 
-        #region Listing Method
-        public async void Listing(string wpid, string snky, Action<bool, string> callback)
+        #region List Method
+        public async void List(string wpid, string snky, Action<bool, string> callback)
         {
             var dict = new Dictionary<string, string>();
                 dict.Add("wpid", wpid);
